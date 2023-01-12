@@ -1,3 +1,2 @@
-.wrapper {
-    background: red;
-}
+@import url("./components/HelloWorld/index.css");
+@import url("./components/LButton/index.css");

@@ -1,0 +1,46 @@
+@import '../index';
+
+.l-button {
+    display: inline-block;
+    border: solid 1px #ccc;
+    box-shadow: 2px 2px 2px #ccc;
+    padding: 5px 15px;
+    cursor: pointer;
+    color: #fff;
+
+    &[type]:hover {
+        background-color: #fff;
+    }
+
+    &[type=default] {
+        background-color: $default-color;
+    }
+
+    &[type=default]:hover {
+        color: $default-color;
+    }
+
+    &[type=success] {
+        background-color: $success-color;
+    }
+
+    &[type=success]:hover {
+        color: $default-color;
+    }
+
+    &[type=fail] {
+        background-color: $fail-color;
+    }
+
+    &[type=fail]:hover {
+        color: $fail-color;
+    }
+
+    &[type=information] {
+        background-color: $information-color;
+    }
+
+    &[type=information]:hover {
+        color: $information-color;
+    }
+}
