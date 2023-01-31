@@ -11,8 +11,11 @@ declare module 'react' {
 
 export interface LButtonProps {
   type?: "success" | "fail" | "information" | "default"
-  children?: React.ReactElement | string | number
+  lsize?: "maximum" | "large" | "default" | "small" | "minimum"
 
+  shape?: "circle"
+
+  children?: React.ReactNode;
 }
 
 
@@ -25,20 +28,35 @@ export default class LButton extends React.PureComponent<LButtonProps, any>{
   }
   state = {
     type: "default",
-    children: "default"
+    lsize: "default",
+    children: "children",
+    shape: undefined,
   } as LButtonProps
 
   componentDidMount(): void {
+
     if (this.props.type) {
       this.setState({ type: this.props.type })
     }
-    this.setState({ children: this.props.children })
+    if (this.props.shape) {
+      this.setState({ shape: this.props.shape })
+    }
+    if (this.props.lsize) {
+      this.setState({ lsize: this.props.lsize })
+    }
+    if (this.props.children) {
+      this.setState({ children: this.props.children })
+    }
+
+
   }
 
   render() {
-    const { type, children } = this.state
+    const { type, lsize, children, shape } = this.state
     return (
-      <div className='l-button' type={type}> {children} </div>
+      <div className='l-button' type={type} lsize={lsize} shape={shape}>
+        {children}
+      </div>
     )
   }
 } 

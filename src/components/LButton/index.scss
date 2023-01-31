@@ -4,9 +4,10 @@
     display: inline-block;
     border: solid 1px #ccc;
     box-shadow: 2px 2px 2px #ccc;
-    padding: 5px 15px;
+    padding: 6px 11px;
     cursor: pointer;
     color: #fff;
+    border-radius: 10px;
 
     &[type]:hover {
         background-color: #fff;
@@ -43,4 +44,38 @@
     &[type=information]:hover {
         color: $information-color;
     }
+
+    &[lsize=maximum] {
+        padding: $default-padding + 4px;
+    }
+
+    &[lsize=large] {
+        padding: $default-padding + 2px;
+    }
+
+    &[lsize=default] {
+        padding: $default-padding + 0px;
+    }
+
+    &[lsize=small] {
+        padding: ($default-padding - 2) + px;
+    }
+
+    &[lsize=minimum] {
+        padding: ($default-padding - 4) + px;
+    }
+
+    &[shape=circle] {
+        border-radius: 50%;
+    }
+
+
+
+
+
+
+
+
+
+
 }
