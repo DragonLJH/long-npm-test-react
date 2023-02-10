@@ -40,17 +40,6 @@ export default class ButtonPage extends React.Component {
                 <LCard width={1000}
                     left={
                         <>
-                            {/* <div>{`import LButton from '../../components/LButton';`} </div>
-                            <div>{`import {LButtonProps}  from '../../components/LButton';`}</div>
-                            <div>{`state = {`}</div>
-                            <div>{`buttonTypeArr: [`}</div>
-                            <div>{`{ type: "", children: "default" },`}</div>
-                            <div>{`{ type: "success" },`}</div>
-                            <div>{`{ type: "fail", children: "fail" },`}</div>
-                            <div>{`{ type: "information", children: "information" },`}</div>
-                            <div>{`] as Array<LButtonProps>,`}</div> 
-                            <div>{`}`}</div> 
-                            <div>{``}</div>  */}
                         </>
                     }
                 >

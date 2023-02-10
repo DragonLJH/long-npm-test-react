@@ -4,6 +4,7 @@ import * as React from "react";
 // import "long-npm-test-react/lib/main.min.css" 
 import ButtonPage from '../ButtonPage';
 import CardPage from '../CardPage';
+import GraphicalPage from '../GraphicalPage';
 
 
 
@@ -24,6 +25,10 @@ export default class HomePage extends React.Component {
                 <div>
                     <CardPage />
                 </div>
+                <div>
+                    <GraphicalPage />
+                </div>
+
             </>
         )
     }

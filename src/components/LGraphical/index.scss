@@ -1,0 +1,132 @@
+@import '../index';
+
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.l-graphical {
+    >div {
+        width: 50px;
+        height: 50px;
+        box-shadow: 0px 0px 5px #ccc;
+    }
+
+    .eight-diagrams {
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        animation: rotate 1s linear infinite;
+
+        &::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 25%;
+            height: 25%;
+            left: 12.5%;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            background-color: #000;
+            z-index: 2;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 25%;
+            height: 25%;
+            right: 12.5%;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            background-color: #fff;
+            z-index: 2;
+        }
+
+        .eight-diagrams-left {
+            position: relative;
+            background-color: #000;
+            width: 100%;
+            height: 50%;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-color: #fff;
+                border-radius: 50%;
+                left: 0;
+                bottom: -50%;
+                margin: auto 0;
+            }
+        }
+
+        .eight-diagrams-right {
+            position: relative;
+            background-color: #fff;
+            width: 100%;
+            height: 50%;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                background-color: #000;
+                border-radius: 50%;
+                right: 0;
+                top: -50%;
+                margin: auto 0;
+            }
+        }
+    }
+
+    .rain {
+        .cloud {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            div {
+                width: 100%;
+                height: 50%;
+                background-color: #ccc;
+                border-radius: 10%; 
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: -50%;
+                    left: 0;
+                    width: 25%;
+                    height: 100%;
+                    border-radius: 50%;
+                    background-color: #ccc;
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: -100%;
+                    right: 0;
+                    width: 75%;
+                    height: 300%;
+                    border-radius: 50%;
+                    background-color: #ccc;
+                }
+            }
+        }
+    }
+}
