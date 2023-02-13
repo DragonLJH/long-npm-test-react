@@ -41,5 +41,9 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
     "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "react-router": "^6.8.1",
+    "react-router-dom": "^6.8.1"
   }
 }

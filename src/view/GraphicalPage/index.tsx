@@ -8,7 +8,7 @@ import { LGraphicalProps } from '../../components/LGraphical';
 
 
 
-export default class LGraphicalPage extends React.Component {
+export default class GraphicalPage extends React.Component {
 
     state = {
     }

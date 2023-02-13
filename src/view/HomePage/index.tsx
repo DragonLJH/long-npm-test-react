@@ -5,7 +5,13 @@ import * as React from "react";
 import ButtonPage from '../ButtonPage';
 import CardPage from '../CardPage';
 import GraphicalPage from '../GraphicalPage';
-
+import RollPage from '../RollPage';
+import {
+    HashRouter as Router,
+    Routes,
+    Route,
+    Link,
+} from "react-router-dom";
 
 
 
@@ -19,16 +25,22 @@ export default class HomePage extends React.Component {
 
         return (
             <>
-                <div>
-                    <ButtonPage />
-                </div>
-                <div>
-                    <CardPage />
-                </div>
-                <div>
-                    <GraphicalPage />
-                </div>
-
+                <Router>
+                    <div>
+                        <Link to="/button" >button</Link></div>
+                    <div>
+                        <Link to="/card" >card</Link></div>
+                    <div>
+                        <Link to="/graphical" >graphical</Link></div>
+                    <div>
+                        <Link to="/roll" >roll</Link></div>
+                    <Routes>
+                        <Route path="button" element={<ButtonPage />} />
+                        <Route path="card" element={<CardPage />} />
+                        <Route path="graphical" element={<GraphicalPage />} />
+                        <Route path="roll" element={<RollPage />} />
+                    </Routes>
+                </Router>
             </>
         )
     }
