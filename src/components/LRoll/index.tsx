@@ -59,7 +59,7 @@ export default class LRoll extends React.PureComponent<LRollProps> {
         return this.state.obj[item](data[item])
       })
     }
-    return <div>{Object.values(data)}</div>
+    return Object.values(data).map((item: any) => <span>{item}</span>)
 
   }
 
