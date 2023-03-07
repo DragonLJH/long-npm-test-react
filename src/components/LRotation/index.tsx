@@ -44,9 +44,11 @@ export default class LRotation extends React.PureComponent<LRotationProps> {
     const { imgArr } = this.state
     return (
       <div className='l-rotation' >
-        <div className="l-rotation-img" style={{ transform: "translateZ(100px)" }}><img src={this.getRandomImg()} /></div>
-        <div className="l-rotation-img" style={{ transform: "translateZ(100px) rotateY(90deg)" }}><img src={this.getRandomImg()} /></div>
-        <div className="l-rotation-img" style={{ transform: "translateZ(-100px)" }}><img src={this.getRandomImg()} /></div>
+
+        <div className="l-rotation-img" style={{ transform: "translateZ(-100px) rotateY(-180deg)" }}><img src={this.getRandomImg()} /></div>
+        <div className="l-rotation-img" style={{ transform: "translateX(-100px) rotateY(-90deg)" }}><img src={this.getRandomImg()} /></div>
+        <div className="l-rotation-img" style={{ transform: "translateZ(100px) rotateY(0deg)" }}><img src={this.getRandomImg()} /></div>
+        <div className="l-rotation-img" style={{ transform: "translateX(100px) rotateY(90deg)" }}><img src={this.getRandomImg()} /></div>
         {/* <div className="l-rotation-img" style={{ transform: "translateX(200px),rotateY(-90deg)" }}><img src={this.getRandomImg()} /></div> */}
         {/* {imgArr.map((item: string, index: number) => {
           let style = { transform: "" }
@@ -61,4 +63,4 @@ export default class LRotation extends React.PureComponent<LRotationProps> {
       </div>
     )
   }
-} 
+}

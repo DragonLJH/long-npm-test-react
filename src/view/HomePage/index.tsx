@@ -7,6 +7,7 @@ import CardPage from '../CardPage';
 import GraphicalPage from '../GraphicalPage';
 import RollPage from '../RollPage';
 import RotationPage from '../RotationPage';
+import TabsPage from '../TabsPage';
 import {
     HashRouter as Router,
     Routes,
@@ -20,7 +21,6 @@ export default class HomePage extends React.Component {
 
     state = {
     }
-
 
     render() {
 
@@ -37,12 +37,15 @@ export default class HomePage extends React.Component {
                         <Link to="/roll" >roll</Link></div>
                     <div>
                         <Link to="/rotation" >rotation</Link></div>
+                    <div>
+                        <Link to="/tabsPage" >TabsPage</Link></div>
                     <Routes>
                         <Route path="button" element={<ButtonPage />} />
                         <Route path="card" element={<CardPage />} />
                         <Route path="graphical" element={<GraphicalPage />} />
                         <Route path="roll" element={<RollPage />} />
                         <Route path="rotation" element={<RotationPage />} />
+                        <Route path="tabsPage" element={<TabsPage />} />
                     </Routes>
                 </Router>
             </>
