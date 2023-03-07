@@ -59,7 +59,8 @@ export default class LRoll extends React.PureComponent<LRollProps> {
         return this.state.obj[item](data[item])
       })
     }
-    return Object.values(data).map((item: any) => <span>{item}</span>)
+    
+    return Object.keys(data).map((item: any, index: number) => <span key={index}>{data[item]}</span>)
 
   }
 
@@ -81,8 +82,11 @@ export default class LRoll extends React.PureComponent<LRollProps> {
 
   render() {
     const { list } = this.state
+    let style = {
+      width: 300, height: this.totalHeight(), "--height": "20px"
+    }
     return (
-      <div className='l-roll' style={{ width: 300, height: this.totalHeight(), "--height": "20px" }} onScroll={() => this.onscroll(event)}>
+      <div className='l-roll' style={style} onScroll={() => this.onscroll(event)}>
         <div className="l-roll-overflow" style={{ height: this.state.list.length * 20 }}></div>
         <div className="l-roll-msg" style={{ transform: `translateY(${this.state.start * 20}px)` }}>{this.showList().map((item: any, index: number) => {
           return <div className="item" key={index}>{this.dataHtml(item)}</div>
@@ -90,4 +94,4 @@ export default class LRoll extends React.PureComponent<LRollProps> {
       </div>
     )
   }
-} 
+}
