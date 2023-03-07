@@ -1,0 +1,34 @@
+@import "../index";
+
+.l-tabs {
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 0px 10px #ccc;
+    .l-tabs-top {
+        height: var(--itemHeight);
+        line-height: var(--itemHeight);
+        display: flex;
+        border-bottom: solid 1px #ccc;
+        .item {
+            margin-right: 2px;
+            height: 100%;
+            min-width: 4rem;
+            max-width: 6rem;
+            cursor: pointer;
+            text-align: center;
+            &.active {
+                box-shadow: 0px 0px 10px #ccc;
+                background-color: $default-color;
+            }
+        }
+    }
+    .l-tabs-main {
+        height: calc(100% - var(--itemHeight));
+        .tab-item {
+            // display: none;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
