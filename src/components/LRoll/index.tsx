@@ -18,10 +18,13 @@ export interface LRollProps {
 
 
 export default class LRoll extends React.PureComponent<LRollProps> {
+  msgRef: any;
   constructor(props: LRollProps) {
     super(props);
+    this.msgRef = React.createRef()
 
   }
+
   state = {
     list: [],
     showNum: 20,
@@ -37,8 +40,15 @@ export default class LRoll extends React.PureComponent<LRollProps> {
   }
 
   totalHeight() {
+    let h = 1;
+    // 获取第一条数据的高度
+    if (this.msgRef.current) {
+      if (this.msgRef.current.children[0]) {
+        h = this.msgRef.current.children[0].clientHeight
+      }
+    }
     // 根据显示的条数乘每条的高度获取页面高度
-    return this.state.showNum * 20
+    return this.state.showNum * h
   }
 
   onscroll(event: any) {
@@ -53,15 +63,24 @@ export default class LRoll extends React.PureComponent<LRollProps> {
   }
 
   dataHtml(data: any) {
-    const arr = Object.keys(this.state.obj)
+    const arr: any = this.props.children
+    let res: any;
     if (arr.length) {
-      return arr.map((item: string) => {
-        return this.state.obj[item](data[item])
-      })
+      res = arr.map((element: any, index: number) => {
+        let k = Object.keys(element.props).find(item => item.indexOf("data") != -1).split("-")[1]
+        return <div {...element.props} key={index}>{data[k]}</div>
+      });
+    } else {
+      res = <div {...arr.props}>{
+        arr.props.children.map((element: any, index: number) => {
+          let k = Object.keys(element.props).find(item => item.indexOf("data") != -1).split("-")[1]
+          return <div {...element.props} key={index}>{data[k]}</div>
+        })
+      }</div>
     }
-    
-    return Object.keys(data).map((item: any, index: number) => <span key={index}>{data[item]}</span>)
 
+
+    return <>{res}</>
   }
 
 
@@ -71,6 +90,9 @@ export default class LRoll extends React.PureComponent<LRollProps> {
     }
     if (this.props.obj) {
       this.setState({ obj: this.props.obj })
+    }
+    if (this.props.showNum) {
+      this.setState({ showNum: this.props.showNum })
     }
 
 
@@ -83,12 +105,12 @@ export default class LRoll extends React.PureComponent<LRollProps> {
   render() {
     const { list } = this.state
     let style = {
-      width: 300, height: this.totalHeight(), "--height": "20px"
+      width: 300, height: this.totalHeight()
     }
     return (
       <div className='l-roll' style={style} onScroll={() => this.onscroll(event)}>
         <div className="l-roll-overflow" style={{ height: this.state.list.length * 20 }}></div>
-        <div className="l-roll-msg" style={{ transform: `translateY(${this.state.start * 20}px)` }}>{this.showList().map((item: any, index: number) => {
+        <div ref={this.msgRef} className="l-roll-msg" style={{ transform: `translateY(${this.state.start * 20}px)` }}>{this.showList().map((item: any, index: number) => {
           return <div className="item" key={index}>{this.dataHtml(item)}</div>
         })}</div>
       </div>

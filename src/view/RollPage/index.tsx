@@ -22,7 +22,13 @@ export default class RollPage extends React.Component {
                 <div>
                     RollPage
                 </div>
-                <LRoll list={list} showNum={10} />
+                <LRoll list={list} showNum={5} >
+                    <div style={{display:"flex",gap:"10px"}}>
+                        <div data-name style={{ height: "50px" }}></div>
+                        <div data-msg ></div>
+                    </div>
+
+                </LRoll>
             </>
         )
     }
